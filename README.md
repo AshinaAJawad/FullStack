@@ -1,1 +1,1 @@
-This contains the codes for the First Front-End Project.
+This contains the code for the First Front-End Project.
