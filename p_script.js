@@ -130,20 +130,14 @@ function createAvatar() {
     context.beginPath();
     context.arc(avatarSize / 2, avatarSize / 2, avatarSize / 2, 0, 2 * Math.PI);
     context.clip();
-
-// Draw the original image onto the canvas with scaling and clipping
     context.drawImage(originalImage, 0, 0, originalImage.naturalWidth, originalImage.naturalHeight, 0, 0, avatarSize, avatarSize);
 }
 function convertToGrayscale() {
     var image = document.getElementById("image_7");
     var originalWidth = image.width;
     var originalHeight = image.height;
-
-    // Set the canvas size based on the original image dimensions
     canvas.width = originalWidth;
     canvas.height = originalHeight;
-
-    // Draw the original image on the canvas
     ctx.drawImage(image, 0, 0, originalWidth, originalHeight);
 
     var imageData = ctx.getImageData(0, 0, originalWidth, originalHeight);
@@ -153,12 +147,10 @@ function convertToGrayscale() {
         var r = data[i];
         var g = data[i + 1];
         var b = data[i + 2];
-        var grayscale = 0.2126 * r + 0.7152 * g + 0.0722 * b; // Using luminance method
-
-        // Set the grayscale value for all color channels
-        data[i] = grayscale; // Red channel
-        data[i + 1] = grayscale; // Green channel
-        data[i + 2] = grayscale; // Blue channel
+        var grayscale = 0.2126 * r + 0.7152 * g + 0.0722 * b; 
+        data[i] = grayscale; 
+        data[i + 1] = grayscale; 
+        data[i + 2] = grayscale; 
     }
 
     ctx.putImageData(imageData, 0, 0);
@@ -175,8 +167,8 @@ function generateQRCode(){
     });
   
     const canvas = document.getElementById("image_8");
-    canvas.innerHTML = ""; // Clear previous QR code
-    qrCode.append(canvas5); // Display QR code for the image path
+    canvas.innerHTML = ""; 
+    qrCode.append(canvas5); 
 }
 function applyFilter(filter) {
     var image = document.getElementById('filter');
